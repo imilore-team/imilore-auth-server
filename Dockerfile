@@ -1,11 +1,11 @@
 FROM python:3.10
 
-WORKDIR /build
+WORKDIR /auth-server
 
-COPY ./requirements.txt /build/requirements.txt
+COPY ./requirements.txt /auth-server/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /build/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /auth-server/requirements.txt
 
-COPY ./src /build/src
+COPY ./src /auth-server/src
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8001"]
